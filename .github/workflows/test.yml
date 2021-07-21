@@ -10,6 +10,7 @@ jobs:
     - uses: cachix/install-nix-action@v13
       with:
         nix_path: nixpkgs=channel:nixos-unstable
+    - run: nix-shell -p nix-info --run "nix-info -m"
     - name: clang 11
       run: |
         nix-build --argstr llvmSuffix _11
